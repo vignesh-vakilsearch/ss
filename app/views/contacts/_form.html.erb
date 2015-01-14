@@ -1,0 +1,28 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+    this willcreate an object like
+    <input name="contact[address]" type="text">
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+    <input name="contact[city]" type="text">
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
